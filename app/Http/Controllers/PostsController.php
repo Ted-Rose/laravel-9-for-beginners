@@ -14,11 +14,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        DB::transaction(function () {
-            
-        });
+        $posts = DB::table('posts')->find(1);
+        // Find post with id 1
 
-        return view('blog.index');
+        return view('blog.index')->with('posts', $posts);
+        // with allows passing data into view
     }
 
     /**
