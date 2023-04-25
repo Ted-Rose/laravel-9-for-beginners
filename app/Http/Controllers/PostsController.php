@@ -14,11 +14,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->find(1);
-        // Find post with id 1
-
-        return view('blog.index')->with('posts', $posts);
-        // with allows passing data into view
+        $posts = DB::table('posts')->get();
+         
+        return view('blog.index', compact('posts'));
+        // With compact method
     }
 
     /**

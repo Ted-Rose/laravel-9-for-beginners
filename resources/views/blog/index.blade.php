@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    {{ $posts->title }}
-    {{-- Equevialent to <?php $posts->title ?>
-        but not because behind scenes we actually do:
-        <?php echo htmlentities($posts->title) ?>--}}
+    {{ dump($posts) }}
+    {{-- Dumps 200 rows --}}
+
 </body>
 </html>
