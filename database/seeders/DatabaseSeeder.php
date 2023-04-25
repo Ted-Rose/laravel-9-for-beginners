@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
     {
 //        $this->call(PostsTableSeeder::class);
         Post::factory(100)->create();
+        // Generate 100 records in db
+        Post::factory(100)->create([
+            'body'=> 'Overriding the body of our post'
+        ]);
+        // This will override the records we just made
+
     }
 }
