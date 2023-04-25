@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(PostsTableSeeder::class);
+        // Runs the seeder class we want to seed
     }
 }
