@@ -7,8 +7,20 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    {{ dump($posts) }}
-    {{-- Dumps 200 rows --}}
+    @@if (count($posts) > 100)
+    {{-- Prints h1 if we have more than 100 posts --}}
+        <h1>
+            {{ dd($posts) }}
+        </h1>
+    @elseif (count($posts) === 202)
+        <h1>
+            You have exactly 202 posts
+        </h1>
+    @else
+        <h1>
+            No posts
+        </h1>
+    @endif
 
 </body>
 </html>
