@@ -14,10 +14,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->get();
-         
-        return view('blog.index', compact('posts'));
-        // With compact method
+        return view('blog.index', [
+            'posts' => DB::table('posts')->get()
+            // Key name can be whatever, but has to be equal
+            // to the variable that we will use in index.blade
+        ]);
     }
 
     /**
