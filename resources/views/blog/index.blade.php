@@ -34,6 +34,10 @@
         </div>
     </div>
 
+    {{-- {{ dd($posts)}} --}}
+    {{-- Returns a elequent collection. It is an array on steroids allowing
+    method chaining --}}
+
     @foreach($posts as $post)
         <div class="w-4/5 mx-auto pb-10">
             <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 pb-10 sm:pb-0">
@@ -49,10 +53,14 @@
                     </p>
 
                     <span class="text-gray-500 text-sm sm:text-base">
-                    Made by:
-                        <a href=""
+                    Post:
+                        <a href="{{ route('blog.show', $post->id) }}"
+                            {{-- Creates a link to specific post --}}
                            class="text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all">
-                            Dary
+                            {{-- {{ $post->title}} --}}
+                            {{-- Prints out an title out of array based @once
+                                current $post index value --}}
+                            @endonce
                         </a>
                     op 13-07-2022
                 </span>
