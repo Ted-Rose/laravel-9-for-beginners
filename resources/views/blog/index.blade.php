@@ -7,20 +7,40 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    @@if (count($posts) > 100)
-    {{-- Prints h1 if we have more than 100 posts --}}
+    {{-- @@unless ($posts)
         <h1>
-            {{ dd($posts) }}
+            Post have been saved
         </h1>
-    @elseif (count($posts) === 202)
-        <h1>
-            You have exactly 202 posts
-        </h1>
-    @else
-        <h1>
-            No posts
-        </h1>
-    @endif
+        {{-- Doesn't show h1, because we get posts --}}
+    {{-- @endunless --}}
+
+    {{-- @forelse ($posts as $post)
+        {{ $post->title }}
+    @empty
+        <p>No posts have been set</p>
+        {{-- Doesn't  show, because forelse worked and showed posts --}}
+    {{-- @endforelse --}}
+
+    @forelse ($posts as $post)
+        {{ $loop->index }}
+        {{-- hiden property loop is a an SED class object and index method 
+        will return 0 based index of the current item in the loop.
+        Print 0 till 201
+
+        Also can use:
+            iteration - starts with 1
+            remaining - shows how many items have left
+            starts with 201 and end with 0
+            count - shows count of items in lopp (shows 202)
+            first - boolean property that shows if the item is the
+            first inside the loop
+            last - oposite of first
+            depth - constantly looping over 1 forelse
+            parent - checks if loop is inside another loop --}}
+    @empty
+        <p>No posts have been set</p>
+        {{-- Doesn't  show, because forelse worked and showed posts --}}
+    @endforelse
 
 </body>
 </html>
