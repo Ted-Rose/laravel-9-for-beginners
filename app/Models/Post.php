@@ -9,19 +9,22 @@ class Post extends Model
 {
     use HasFactory;
 
-    // Change table name
+    // Here you can modify your table
+
+    // Change table name, because name of migration is posts not post
     // protected $table = 'posts';
 
-    // Change primary key of table
+    // Change primary key of table if id is not needed as PK
+    // has to match a table column name
     // protected $primaryKey = 'title';
 
     // Non increment primary key
     // protected $incrementing = false;
 
-    // Disable timestamps
+    // Disable timestamps - alternative to deleting the column
     // public $timestamps = false;
 
-    // Change format
+    // Change format. U - only store seconds of timestamps
     // protected $dateFormat = 'U';
 
     // Change driver for model
