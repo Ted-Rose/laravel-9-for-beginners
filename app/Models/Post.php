@@ -9,6 +9,19 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'excerpt',
+        'body',
+        'image_path',
+        'is_published',
+        'min_to_read',
+        // Passing in columns we want to add in the assignment
+    ];
+//     Laravel's main focus is preventing you from hijaks by
+        // accidentally setting values on fields that you
+        // don't want to change.
+
     // Change table name
     // protected $table = 'posts';
 

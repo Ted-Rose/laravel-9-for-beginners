@@ -44,35 +44,22 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        exit;
-
-        $post = new Post();
-        $post->title = $request->title;
-        $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
-        $post->image_path = 'temporary';
-        $post->is_published = $request->is_published === 'on';
-        // is_published is an eternity operator (checkbox in form).
-        // If is_published = '' then it will return 'on' upon submit
-        $post->min_to_reat = $request->min_to_read;
-        $post->save();
-        // Call save method of our post which was created behind scene
-
+        Post::create([
+            // We have to pass in key that is the property name inside
+            // our post model while value will be the actual value from
+            // the request
+            'title' => $request->title,
+            'excerpt' => $request->excerpt,
+            'body' => $request->body,
+            'image_path' => 'temporary',
+            'is_published' => $request->is_published === 'on',
+            'min_to_read' => $request->min_to_read,
+            // You don't have to call save method, because it is
+            // automatically called in the Post model itself.
+            // But when you want to use create, make, update method in
+            // eloquent you have to approve properties for mass assignment
+        ]);
         return redirect(route('blog.index'));
-        // Unless we return a redirect then after form submit we will be
-        // redirected to empty page
-
-        // Trough Post object we can access all properties/columns in
-        // our DB
-
-        // dd($request->all())
-        // // With the property request and ->all
-        // // it shows all values including token.
-        // // If we use ($request->title); then only title is returned
-
-        // dd('Redirected to the store method');
-        // // A quick way to check if our application flow works correctly
     }
 
     /**
