@@ -17,10 +17,16 @@
 
 <div class="m-auto pt-20">
     <form
-        action=""
-        method=""
+        action="{{ route('blog.store')}}"
+        {{-- Uppon submit handle the form within blog.store method --}}
+        method="POST"
         enctype="multipart/form-data">
-
+        {{-- Required format when working with file upload --}}
+        @csrf
+        {{-- We get 419 Page expired error if csfr tokken is not added, because
+        Laravel blocks all requests if they are not with GET method unless
+        csrf token is added. When added whe can see it in the browser dev
+        tools undel elements as hidden input type --}}
         <label for="is_published" class="text-gray-500 text-2xl">
             Is Published
         </label>

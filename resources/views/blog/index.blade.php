@@ -28,7 +28,9 @@
 
         <div class="py-10 sm:py-20">
             <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
-               href="">
+               href="{{ route('blog.create') }}">
+               {{-- Won't find the route unless 'Route::get('/create'..' will be
+               listed first under 'Route::prefix('blog')' method in web.php --}}
                 New Article
             </a>
         </div>
